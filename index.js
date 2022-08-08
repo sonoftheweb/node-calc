@@ -20,8 +20,6 @@ rl.on('line',  (input) => {
 			token = [...token, ...new CalcTokenizer(input.trim()).tokenize()]
 		}
 
-		console.log(token);
-
 		if (token.includes('=')) {
 			if (token[token.length - 1] === '=') {
 				token.splice(token.length - 1, 1);
