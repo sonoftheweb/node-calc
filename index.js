@@ -12,6 +12,9 @@ let token = []
 rl.setPrompt('> ')
 rl.prompt()
 
+if (!token.length)
+	console.log(0)
+
 rl.on('line',  (input) => {
 	try {
 		if (input === 'c') {
@@ -22,7 +25,7 @@ rl.on('line',  (input) => {
 
 		if (token.includes('=')) {
 			if (token[token.length - 1] === '=') {
-				token.splice(token.length - 1, 1);
+				token.splice(token.length - 1, 1)
 			}
 			token = [new CalcParser(token).evaluate(token)]
 			console.log("> ", token[0])
@@ -30,7 +33,7 @@ rl.on('line',  (input) => {
 			if (!token.length) {
 				console.log(0)
 			} else {
-				console.log(token[token.length - 1]);
+				console.log(token[token.length - 1])
 			}
 		}
 	} catch (e) {
